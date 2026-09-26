@@ -3,213 +3,477 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-  <!-- SEO basics -->
-  <title>KJayson Explained | We see details for you</title>
-  <meta name="description" content="KJayson Explained shares updates, ready-to-use example statements and plain explanations of everyday things, written out in full.">
-  <meta name="author" content="KJayson">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <link rel="canonical" href="https://your-domain.com/">
+  <title>Write | KJayson Explained</title>
+  <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#0b0b0c">
-
-  <!-- Social sharing previews (WhatsApp, Facebook, LinkedIn, X) -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="KJayson Explained">
-  <meta property="og:title" content="KJayson Explained | We see details for you">
-  <meta property="og:description" content="Updates, example statements and plain explanations of everyday things.">
-  <meta property="og:url" content="https://your-domain.com/">
-  <meta property="og:image" content="https://your-domain.com/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="KJayson Explained: We see details for you.">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="KJayson Explained | We see details for you">
-  <meta name="twitter:description" content="Updates, example statements and plain explanations of everyday things.">
-  <meta name="twitter:image" content="https://your-domain.com/og-image.jpg">
-
-  <!-- Icons -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <link rel="manifest" href="site.webmanifest">
-
-  <!-- Fonts: true italic faces so italics are drawn, not slanted -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..600;1,400..600&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap">
-
-  <link rel="preload" as="image" href="hero-bg.webp" type="image/webp">
   <link rel="stylesheet" href="styles.css">
-
-  <!-- Structured data: tells Google who runs the site and what the posts are -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebSite",
-        "@id": "https://your-domain.com/#website",
-        "url": "https://your-domain.com/",
-        "name": "KJayson Explained",
-        "description": "Updates, example statements and plain explanations of everyday things.",
-        "publisher": { "@id": "https://your-domain.com/#kjayson" },
-        "inLanguage": "en"
-      },
-      {
-        "@type": "Person",
-        "@id": "https://your-domain.com/#kjayson",
-        "name": "KJayson",
-        "url": "https://your-domain.com/",
-        "image": "https://your-domain.com/kjayson-profile.jpg"
-      },
-      {
-        "@type": "Blog",
-        "@id": "https://your-domain.com/#posts",
-        "name": "KJayson Explained",
-        "url": "https://your-domain.com/",
-        "author": { "@id": "https://your-domain.com/#kjayson" },
-        "blogPost": [
-          { "@type": "BlogPosting", "headline": "Welcome to KJayson Explained", "datePublished": "2026-09-26", "url": "https://your-domain.com/#welcome", "author": { "@id": "https://your-domain.com/#kjayson" } },
-          { "@type": "BlogPosting", "headline": "Asking for a deadline extension politely", "datePublished": "2026-09-24", "url": "https://your-domain.com/#deadline-extension", "author": { "@id": "https://your-domain.com/#kjayson" } },
-          { "@type": "BlogPosting", "headline": "Receipt vs. invoice: what's the difference?", "datePublished": "2026-09-21", "url": "https://your-domain.com/#receipt-vs-invoice", "author": { "@id": "https://your-domain.com/#kjayson" } },
-          { "@type": "BlogPosting", "headline": "Replying to a customer who received the wrong item", "datePublished": "2026-09-18", "url": "https://your-domain.com/#wrong-item-reply", "author": { "@id": "https://your-domain.com/#kjayson" } },
-          { "@type": "BlogPosting", "headline": "What \"due date\" means on a job", "datePublished": "2026-09-15", "url": "https://your-domain.com/#due-date", "author": { "@id": "https://your-domain.com/#kjayson" } }
-        ]
-      }
-    ]
-  }
-  </script>
+  <style>
+    .page-title { margin: 40px 0 6px; font-weight: 400; font-size: clamp(34px, 5vw, 52px); letter-spacing: -.02em; line-height: 1.05; }
+    .page-sub { margin: 0; color: var(--muted); max-width: 60ch; }
+    .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; margin-top: 28px; align-items: start; }
+    .panel {
+      padding: 24px clamp(18px, 3vw, 28px);
+      background: var(--glass); border: 1px solid var(--glass-edge); border-radius: var(--radius);
+      backdrop-filter: blur(24px) saturate(150%); -webkit-backdrop-filter: blur(24px) saturate(150%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.12);
+    }
+    .panel h2 { margin: 0 0 16px; font-weight: 500; font-size: 20px; }
+    .field { display: grid; gap: 6px; margin-bottom: 16px; }
+    .field label, .field .lbl { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .field .hint { font-size: 14px; color: var(--faint); margin: 0; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    input[type=text], input[type=password], input[type=date], textarea, select {
+      width: 100%; font: 16px var(--sans); color: var(--paper);
+      background: rgba(0,0,0,.35); border: 1px solid var(--glass-edge); border-radius: 14px; padding: 11px 14px;
+    }
+    textarea { min-height: 260px; resize: vertical; line-height: 1.6; }
+    input:focus-visible, textarea:focus-visible, select:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--paper); outline-offset: 2px; }
+    .types { display: flex; flex-wrap: wrap; gap: 8px; }
+    .types input { position: absolute; opacity: 0; pointer-events: none; }
+    .types label {
+      text-transform: none; letter-spacing: 0; font: 14px var(--sans); color: var(--muted);
+      padding: 8px 14px; border-radius: 999px; border: 1px solid var(--glass-edge); cursor: pointer; background: var(--glass);
+    }
+    .types input:checked + label { background: rgba(255,255,255,.92); color: #111; }
+    .types input:focus-visible + label { outline: 2px solid var(--paper); outline-offset: 2px; }
+    .btn {
+      font: 500 15px var(--sans); border: 0; border-radius: 999px; padding: 12px 22px; cursor: pointer;
+      background: var(--paper); color: #111;
+    }
+    .btn.secondary { background: var(--glass-strong); color: var(--paper); border: 1px solid var(--glass-edge); }
+    .btn.danger { background: rgba(232,80,44,.2); color: #ffd9cf; border: 1px solid rgba(232,80,44,.5); }
+    .btn[disabled] { opacity: .5; cursor: wait; }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .status { margin: 14px 0 0; padding: 12px 14px; border-radius: 14px; font-size: 15px; }
+    .status.ok { background: rgba(80,200,120,.14); border: 1px solid rgba(80,200,120,.4); }
+    .status.err { background: rgba(232,80,44,.14); border: 1px solid rgba(232,80,44,.45); }
+    .status.info { background: var(--glass); border: 1px solid var(--glass-edge); }
+    .status a { color: var(--paper); }
+    details.setup { margin-top: 28px; }
+    details.setup summary { cursor: pointer; font-size: 18px; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    details.setup summary::-webkit-details-marker { display: none; }
+    .pill { font-family: var(--mono); font-size: 12px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--glass-edge); color: var(--muted); }
+    .pill.on { color: #bff0cf; border-color: rgba(80,200,120,.45); }
+    .steps { margin: 16px 0 18px; padding-left: 20px; color: #d8d8da; }
+    .steps li { margin-bottom: 6px; }
+    .steps a { color: var(--paper); }
+    code { font-family: var(--mono); font-size: .88em; background: rgba(255,255,255,.08); padding: 1px 6px; border-radius: 6px; }
+    .cheat { margin: 0; padding: 12px 14px; background: rgba(0,0,0,.3); border-radius: 14px; font-size: 14px; color: var(--muted); display: grid; gap: 4px; }
+    .preview-label { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+    .preview .post { margin: 0; }
+    .manage { margin-top: 18px; }
+    .list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+    .list li { display: flex; gap: 12px; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 14px; background: rgba(0,0,0,.25); }
+    .list .t { min-width: 0; }
+    .list .t b { display: block; font-weight: 500; overflow-wrap: anywhere; }
+    .list .t span { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+    .list .btn { padding: 8px 14px; font-size: 14px; flex-shrink: 0; }
+    .confirm { display: flex; gap: 8px; flex-shrink: 0; }
+    @media (max-width: 860px) { .grid { grid-template-columns: 1fr; } }
+    @media (max-width: 480px) { .row { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
-  <a class="skip" href="#posts">Skip to posts</a>
   <div class="ambient" aria-hidden="true"><span class="a"></span><span class="b"></span><span class="c"></span></div>
   <div class="grain" aria-hidden="true"></div>
 
   <div class="wrap">
     <header class="nav">
-      <a class="brand" href="#top" aria-label="KJayson Explained, back to top"><i></i><span>KJayson Explained</span></a>
-      <nav aria-label="Main">
-        <ul>
-          <li><a href="#posts">Posts</a></li>
-          <li><a href="#about">About</a></li>
-        </ul>
-      </nav>
+      <a class="brand" href="./"><i></i><span>KJayson Explained</span></a>
+      <nav aria-label="Main"><ul><li><a href="./">View site</a></li></ul></nav>
     </header>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="headline">
-        <div>
-          <h1 id="headline">We see <em>details</em> for you.</h1>
-          <p class="sub">Updates, example statements and plain explanations of everyday things, written out in full.</p>
-        </div>
-        <p class="tag-line"><i></i>KJayson Explained</p>
-      </section>
+    <main>
+      <h1 class="page-title">Write a <em>new</em> post</h1>
+      <p class="page-sub">Fill in the boxes and press Publish. Your post goes live on the site about a minute later.</p>
 
-      <section class="profile" id="about" aria-labelledby="about-title">
-        <picture>
-          <source srcset="kjayson-profile.webp" type="image/webp">
-          <img class="avatar" src="kjayson-profile.jpg" width="480" height="480" alt="KJayson looking through binoculars, black and white illustration">
-        </picture>
-        <div>
-          <p class="label">About</p>
-          <h2 id="about-title">KJayson</h2>
-          <p class="poem">
-            <span>Have you ever nodded along</span>
-            <span>when you didn't really know?</span>
-            <span>Have you ever read a message twice</span>
-            <span>and still not caught the flow?</span>
-          </p>
-          <dl class="stats">
-            <div><dt>Posts</dt><dd id="count-all">5</dd></div>
-            <div><dt>Examples</dt><dd id="count-example">2</dd></div>
-            <div><dt>Clarifications</dt><dd id="count-clarification">2</dd></div>
-          </dl>
-        </div>
-      </section>
-
-      <section id="posts" aria-labelledby="posts-title">
-        <div class="feed-head">
-          <div>
-            <h2 id="posts-title">Latest posts</h2>
-            <p>Newest first. Filter by type or search.</p>
+      <!-- One-time setup -->
+      <details class="setup panel" id="setup">
+        <summary>GitHub connection <span class="pill" id="conn-pill">Not connected</span></summary>
+        <ol class="steps">
+          <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub: new fine-grained token</a>.</li>
+          <li>Name it <code>KJayson Write page</code> and pick an expiry date (for example 1 year).</li>
+          <li>Under <b>Repository access</b>, choose <b>Only select repositories</b> and pick your site's repository.</li>
+          <li>Under <b>Permissions → Repository permissions</b>, set <b>Contents</b> to <b>Read and write</b>.</li>
+          <li>Click <b>Generate token</b>, copy it, and paste it below.</li>
+        </ol>
+        <div class="row">
+          <div class="field">
+            <label for="owner">GitHub username</label>
+            <input type="text" id="owner" autocomplete="off" spellcheck="false">
           </div>
-          <div class="tools">
-            <div class="seg" role="group" aria-label="Filter posts by type">
-              <button type="button" data-filter="all" aria-pressed="true">All</button>
-              <button type="button" data-filter="update" aria-pressed="false">Updates</button>
-              <button type="button" data-filter="example" aria-pressed="false">Examples</button>
-              <button type="button" data-filter="clarification" aria-pressed="false">Clarifications</button>
-            </div>
-            <label for="search" class="sr-only">Search posts</label>
-            <input class="search" id="search" type="search" placeholder="Search posts" autocomplete="off">
+          <div class="field">
+            <label for="repo">Repository name</label>
+            <input type="text" id="repo" autocomplete="off" spellcheck="false">
           </div>
         </div>
-
-        <div class="feed">
-          <!-- ===== HOW TO ADD A POST =====
-               Copy one <article> block, paste it at the TOP of this list,
-               then change: id, data-type (update / example / clarification),
-               the type label, the date (both places), the title and the text. -->
-
-          <article class="post" id="welcome" data-type="update">
-            <div class="meta"><span class="type">Update</span><time datetime="2026-09-26">26 Sept 2026</time></div>
-            <h3><a href="#welcome">Welcome to KJayson Explained</a></h3>
-            <div class="body">
-              <p>This site is now live. I'll use it to post updates, share example statements, and clear up things people ask me about often.</p>
-              <p>Check back here for new posts. The newest one is always at the top.</p>
-            </div>
-          </article>
-
-          <article class="post" id="deadline-extension" data-type="example">
-            <div class="meta"><span class="type">Example statement</span><time datetime="2026-09-24">24 Sept 2026</time></div>
-            <h3><a href="#deadline-extension">Asking for a deadline extension politely</a></h3>
-            <div class="body">
-              <p>Here is a statement you can adapt when you need more time on a piece of work:</p>
-              <blockquote>Good morning. I'm writing to ask for a short extension on the report due Friday. I've completed most of it, but I need two more days to check the figures properly. Would Monday afternoon work for you? Thank you for considering this.</blockquote>
-              <p>Keep it short, say what is already done, give a clear new date, and end with a question so the other person can reply easily.</p>
-              <p>If the person says no, thank them and ask which parts matter most by the original date. That usually gets you a smaller, doable target.</p>
-            </div>
-          </article>
-
-          <article class="post" id="receipt-vs-invoice" data-type="clarification">
-            <div class="meta"><span class="type">Clarification</span><time datetime="2026-09-21">21 Sept 2026</time></div>
-            <h3><a href="#receipt-vs-invoice">Receipt vs. invoice: what's the difference?</a></h3>
-            <div class="body">
-              <p>An <dfn>invoice</dfn> is a request for payment. You send it before the money arrives, and it lists what was supplied, the amount due, and when it must be paid.</p>
-              <p>A <dfn>receipt</dfn> is proof that payment was made. You give it after the money arrives, and it confirms the amount, the date, and how it was paid.</p>
-              <p>For a small shop, the usual order is: invoice first if the customer pays later, receipt once they pay. If the customer pays on the spot, a receipt alone is enough.</p>
-              <p>Keep copies of both. They are what you'll need if a customer disputes a payment or when you check your records at the end of the month.</p>
-            </div>
-          </article>
-
-          <article class="post" id="wrong-item-reply" data-type="example">
-            <div class="meta"><span class="type">Example statement</span><time datetime="2026-09-18">18 Sept 2026</time></div>
-            <h3><a href="#wrong-item-reply">Replying to a customer who received the wrong item</a></h3>
-            <div class="body">
-              <blockquote>Hello, I'm sorry you received the wrong item. Please keep it for now. I'll send the correct one today and arrange collection of the other at no cost to you. Thank you for letting me know.</blockquote>
-              <p>Apologise once, say exactly what you will do, and say when. Avoid long explanations of how the mistake happened.</p>
-            </div>
-          </article>
-
-          <article class="post" id="due-date" data-type="clarification">
-            <div class="meta"><span class="type">Clarification</span><time datetime="2026-09-15">15 Sept 2026</time></div>
-            <h3><a href="#due-date">What "due date" means on a job</a></h3>
-            <div class="body">
-              <p>A <dfn>due date</dfn> is the day the finished work must be delivered, not the day you start. If a job is due on the 30th, the finished work should be with the client by the end of that day unless a specific time is given.</p>
-              <p>When a time isn't stated, ask. "End of day" can mean 5 pm to one person and midnight to another.</p>
-            </div>
-          </article>
-
-          <p class="empty" id="empty" hidden>No posts match that search. Try a shorter word.</p>
+        <div class="row">
+          <div class="field">
+            <label for="branch">Branch</label>
+            <input type="text" id="branch" value="main" autocomplete="off" spellcheck="false">
+          </div>
+          <div class="field">
+            <label for="token">GitHub key (token)</label>
+            <input type="password" id="token" autocomplete="off" spellcheck="false" placeholder="github_pat_...">
+          </div>
         </div>
-      </section>
+        <p class="field hint">The key is saved only in this browser on this device. Visitors to your site never see it.</p>
+        <div class="actions">
+          <button class="btn" type="button" id="save-conn">Save and test</button>
+          <button class="btn secondary" type="button" id="forget">Forget key on this device</button>
+        </div>
+        <div id="conn-status" aria-live="polite"></div>
+      </details>
+
+      <div class="grid">
+        <!-- Composer -->
+        <form class="panel" id="composer" novalidate>
+          <h2>Your post</h2>
+          <div class="field">
+            <span class="lbl" id="type-lbl">Type</span>
+            <div class="types" role="radiogroup" aria-labelledby="type-lbl">
+              <input type="radio" name="type" id="t-update" value="update" checked><label for="t-update">Update</label>
+              <input type="radio" name="type" id="t-example" value="example"><label for="t-example">Example statement</label>
+              <input type="radio" name="type" id="t-clar" value="clarification"><label for="t-clar">Clarification</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="title">Title</label>
+            <input type="text" id="title" maxlength="140" placeholder="What is VAT and who pays it?">
+          </div>
+          <div class="field">
+            <label for="date">Date</label>
+            <input type="date" id="date">
+          </div>
+          <div class="field">
+            <label for="text">Text</label>
+            <textarea id="text" placeholder="Write as much as you like.&#10;&#10;Leave an empty line to start a new paragraph."></textarea>
+          </div>
+          <div class="cheat" aria-label="Formatting help">
+            <span><b>Empty line</b>: new paragraph</span>
+            <span><code>&gt; text</code> at the start of a paragraph: example statement box</span>
+            <span><code>*word*</code>: <em>italic</em> &nbsp; <code>**word**</code>: <strong>bold</strong></span>
+            <span><code>[link text](https://...)</code>: a link</span>
+          </div>
+          <div class="actions" style="margin-top:18px">
+            <button class="btn" type="submit" id="publish">Publish</button>
+            <button class="btn secondary" type="button" id="clear">Clear</button>
+          </div>
+          <div id="pub-status" aria-live="polite"></div>
+        </form>
+
+        <!-- Live preview -->
+        <section class="preview" aria-label="Preview">
+          <p class="preview-label">Preview</p>
+          <article class="post" id="preview-post" data-type="update">
+            <div class="meta"><span class="type" id="pv-type">Update</span><time id="pv-date"></time></div>
+            <h3 id="pv-title">Your title appears here</h3>
+            <div class="body" id="pv-body"><p>Your text appears here as you type.</p></div>
+          </article>
+
+          <div class="panel manage">
+            <h2>Posts on your site</h2>
+            <ul class="list" id="post-list"><li><span class="t"><span>Connect GitHub above to see and remove posts.</span></span></li></ul>
+            <div id="list-status" aria-live="polite"></div>
+          </div>
+        </section>
+      </div>
     </main>
 
     <footer class="footer">
-      <span>&copy; 2026 KJayson Explained</span>
-      <span>We see <em>details</em> for you.</span>
+      <span>This page is only for you. It isn't linked from the site and search engines skip it.</span>
     </footer>
   </div>
 
-  <script src="main.js" defer></script>
+<script>
+(function () {
+  "use strict";
+  var LABELS = { update: "Update", example: "Example statement", clarification: "Clarification" };
+  var MONTHS = ["Jan","Feb","Mar","Apr","May","June","July","Aug","Sept","Oct","Nov","Dec"];
+  var $ = function (id) { return document.getElementById(id); };
+
+  // ---------- storage (this browser only) ----------
+  function load(k) { try { return localStorage.getItem("kj_" + k) || ""; } catch (e) { return ""; } }
+  function save(k, v) { try { localStorage.setItem("kj_" + k, v); } catch (e) {} }
+  function drop(k) { try { localStorage.removeItem("kj_" + k); } catch (e) {} }
+
+  // Guess username and repository from the site address (e.g. name.github.io/kjayson-explained/)
+  function guess() {
+    var host = location.hostname, parts = location.pathname.split("/").filter(Boolean);
+    if (/\.github\.io$/i.test(host)) {
+      var owner = host.split(".")[0];
+      var repo = parts.length && !/\.html?$/i.test(parts[0]) ? parts[0] : owner + ".github.io";
+      return { owner: owner, repo: repo };
+    }
+    return { owner: "", repo: "kjayson-explained" };
+  }
+  var g = guess();
+  $("owner").value = load("owner") || g.owner;
+  $("repo").value = load("repo") || g.repo;
+  $("branch").value = load("branch") || "main";
+  $("token").value = load("token");
+
+  function cfg() {
+    return { owner: $("owner").value.trim(), repo: $("repo").value.trim(), branch: $("branch").value.trim() || "main", token: $("token").value.trim() };
+  }
+  function setPill(on) { var p = $("conn-pill"); p.textContent = on ? "Connected" : "Not connected"; p.classList.toggle("on", on); }
+  function show(el, kind, html) { $(el).innerHTML = html ? '<p class="status ' + kind + '">' + html + "</p>" : ""; }
+
+  // ---------- text helpers ----------
+  function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+  function inline(s) {
+    s = esc(s);
+    s = s.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" rel="noopener">$1</a>');
+    s = s.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    s = s.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+    return s;
+  }
+  function toHtml(text, indent) {
+    indent = indent || "";
+    var blocks = text.replace(/\r/g, "").split(/\n\s*\n/).map(function (b) { return b.trim(); }).filter(Boolean);
+    return blocks.map(function (b) {
+      if (b.charAt(0) === ">") {
+        var q = b.split("\n").map(function (l) { return l.replace(/^>\s?/, "").trim(); }).join(" ");
+        return indent + "<blockquote>" + inline(q) + "</blockquote>";
+      }
+      return indent + "<p>" + b.split("\n").map(function (l) { return inline(l.trim()); }).join("<br>") + "</p>";
+    }).join("\n");
+  }
+  function slug(s) {
+    return s.toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60) || "post";
+  }
+  function niceDate(iso) { var p = iso.split("-"); return +p[2] + " " + MONTHS[+p[1] - 1] + " " + p[0]; }
+  function today() { var d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+  function b64decode(b64) {
+    var bin = atob(b64.replace(/\s/g, "")), bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return new TextDecoder().decode(bytes);
+  }
+  function b64encode(str) {
+    var bytes = new TextEncoder().encode(str), bin = "";
+    for (var i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+    return btoa(bin);
+  }
+
+  // ---------- preview ----------
+  $("date").value = today();
+  function type() { return document.querySelector('input[name="type"]:checked').value; }
+  function preview() {
+    var t = type();
+    $("preview-post").dataset.type = t;
+    $("pv-type").textContent = LABELS[t];
+    var d = $("date").value || today();
+    $("pv-date").textContent = niceDate(d);
+    $("pv-title").textContent = $("title").value.trim() || "Your title appears here";
+    var body = $("text").value.trim();
+    $("pv-body").innerHTML = body ? toHtml(body) : "<p>Your text appears here as you type.</p>";
+  }
+  ["title", "date", "text"].forEach(function (id) { $(id).addEventListener("input", preview); });
+  document.querySelectorAll('input[name="type"]').forEach(function (r) { r.addEventListener("change", preview); });
+  preview();
+
+  // Keep an unsent draft in this browser
+  ["title", "text"].forEach(function (id) {
+    var v = load("draft_" + id); if (v) $(id).value = v;
+    $(id).addEventListener("input", function () { save("draft_" + id, $(id).value); });
+  });
+  preview();
+
+  // ---------- GitHub API ----------
+  function api(path, opts) {
+    var c = cfg();
+    opts = opts || {};
+    return fetch("https://api.github.com/repos/" + encodeURIComponent(c.owner) + "/" + encodeURIComponent(c.repo) + path, {
+      method: opts.method || "GET",
+      cache: "no-store",
+      headers: {
+        "Accept": "application/vnd.github+json",
+        "Authorization": "Bearer " + c.token,
+        "X-GitHub-Api-Version": "2022-11-28",
+        "Content-Type": "application/json"
+      },
+      body: opts.body ? JSON.stringify(opts.body) : undefined
+    }).then(function (r) {
+      return r.text().then(function (t) {
+        var data = t ? JSON.parse(t) : {};
+        if (!r.ok) { var e = new Error(data.message || ("GitHub said " + r.status)); e.status = r.status; throw e; }
+        return data;
+      });
+    });
+  }
+  function explain(e) {
+    var c = cfg();
+    if (e.status === 401) return "GitHub refused the key. It may be mistyped or expired. Create a new one using the steps above.";
+    if (e.status === 403) return "The key doesn't have permission to change files. Set <b>Contents</b> to <b>Read and write</b> for this repository.";
+    if (e.status === 404) return "Couldn't find <code>index.html</code> in <b>" + esc(c.owner) + "/" + esc(c.repo) + "</b> on branch <b>" + esc(c.branch) + "</b>. Check the username, repository and branch names.";
+    if (e.status === 409 || e.status === 422) return "The site changed while you were writing. Press the button again.";
+    if (e instanceof TypeError) return "Couldn't reach GitHub. Check your internet connection and try again.";
+    return esc(e.message);
+  }
+  function getFile(name) {
+    return api("/contents/" + name + "?ref=" + encodeURIComponent(cfg().branch)).then(function (d) {
+      return { sha: d.sha, text: b64decode(d.content) };
+    });
+  }
+  function putFile(name, text, sha, message) {
+    return api("/contents/" + name, { method: "PUT", body: { message: message, content: b64encode(text), sha: sha, branch: cfg().branch } });
+  }
+
+  // ---------- read posts from index.html ----------
+  function parsePosts(html) {
+    var re = /<article class="post" id="([^"]+)" data-type="([^"]+)">[\s\S]*?<time datetime="([^"]+)">[\s\S]*?<h3><a[^>]*>([\s\S]*?)<\/a><\/h3>/g, m, out = [];
+    while ((m = re.exec(html))) {
+      var tmp = document.createElement("div"); tmp.innerHTML = m[4];
+      out.push({ id: m[1], type: m[2], date: m[3], title: tmp.textContent });
+    }
+    return out;
+  }
+  function recount(html) {
+    var posts = parsePosts(html);
+    var n = function (t) { return posts.filter(function (p) { return !t || p.type === t; }).length; };
+    return html
+      .replace(/(<dd id="count-all">)\d*(<\/dd>)/, "$1" + n() + "$2")
+      .replace(/(<dd id="count-example">)\d*(<\/dd>)/, "$1" + n("example") + "$2")
+      .replace(/(<dd id="count-clarification">)\d*(<\/dd>)/, "$1" + n("clarification") + "$2");
+  }
+  function siteBase(html) {
+    var m = html.match(/"@id":\s*"([^"]*?)\/#kjayson"/);
+    return m ? m[1] : "";
+  }
+
+  function renderList(html) {
+    var list = $("post-list"), posts = parsePosts(html);
+    list.innerHTML = "";
+    if (!posts.length) { list.innerHTML = '<li><span class="t"><span>No posts yet.</span></span></li>'; return; }
+    posts.forEach(function (p) {
+      var li = document.createElement("li");
+      li.innerHTML = '<span class="t"><b></b><span></span></span>';
+      li.querySelector("b").textContent = p.title;
+      li.querySelector(".t span").textContent = LABELS[p.type] + " · " + niceDate(p.date);
+      var del = document.createElement("button");
+      del.type = "button"; del.className = "btn secondary"; del.textContent = "Remove";
+      del.addEventListener("click", function () {
+        var box = document.createElement("span"); box.className = "confirm";
+        var yes = document.createElement("button"); yes.type = "button"; yes.className = "btn danger"; yes.textContent = "Yes, remove";
+        var no = document.createElement("button"); no.type = "button"; no.className = "btn secondary"; no.textContent = "Keep";
+        no.addEventListener("click", function () { box.replaceWith(del); });
+        yes.addEventListener("click", function () { removePost(p, yes); });
+        box.append(yes, no); del.replaceWith(box);
+      });
+      li.appendChild(del);
+      list.appendChild(li);
+    });
+  }
+  function refreshList() {
+    if (!cfg().token) return Promise.resolve();
+    return getFile("index.html").then(function (f) { renderList(f.text); setPill(true); return f; });
+  }
+
+  // ---------- connect ----------
+  $("save-conn").addEventListener("click", function () {
+    var c = cfg();
+    if (!c.owner || !c.repo || !c.token) { show("conn-status", "err", "Fill in the username, repository and key first."); return; }
+    save("owner", c.owner); save("repo", c.repo); save("branch", c.branch); save("token", c.token);
+    show("conn-status", "info", "Checking…");
+    refreshList().then(function () {
+      show("conn-status", "ok", "Connected to <b>" + esc(c.owner) + "/" + esc(c.repo) + "</b>. You can publish now.");
+      $("setup").open = false;
+    }).catch(function (e) { setPill(false); show("conn-status", "err", explain(e)); });
+  });
+  $("forget").addEventListener("click", function () {
+    drop("token"); $("token").value = ""; setPill(false);
+    show("conn-status", "info", "The key was removed from this browser.");
+  });
+  if (cfg().token) {
+    refreshList().catch(function (e) { setPill(false); $("setup").open = true; show("conn-status", "err", explain(e)); });
+  } else {
+    $("setup").open = true;
+  }
+
+  // ---------- publish ----------
+  $("clear").addEventListener("click", function () {
+    $("title").value = ""; $("text").value = ""; drop("draft_title"); drop("draft_text"); $("date").value = today();
+    show("pub-status", "", ""); preview();
+  });
+
+  $("composer").addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var title = $("title").value.trim(), text = $("text").value.trim(), date = $("date").value || today(), t = type();
+    if (!cfg().token) { $("setup").open = true; show("pub-status", "err", "Connect GitHub first (the box at the top)."); return; }
+    if (!title) { show("pub-status", "err", "Add a title before publishing."); $("title").focus(); return; }
+    if (!text) { show("pub-status", "err", "Add some text before publishing."); $("text").focus(); return; }
+
+    var btn = $("publish"); btn.disabled = true; btn.textContent = "Publishing…";
+    show("pub-status", "info", "Saving your post to GitHub…");
+
+    getFile("index.html").then(function (f) {
+      var html = f.text, id = slug(title), n = 2;
+      while (html.indexOf('id="' + id + '"') !== -1) id = slug(title) + "-" + n++;
+
+      var article =
+        '\n\n          <article class="post" id="' + id + '" data-type="' + t + '">\n' +
+        '            <div class="meta"><span class="type">' + LABELS[t] + '</span><time datetime="' + date + '">' + niceDate(date) + '</time></div>\n' +
+        '            <h3><a href="#' + id + '">' + esc(title) + '</a></h3>\n' +
+        '            <div class="body">\n' + toHtml(text, "              ") + '\n            </div>\n' +
+        '          </article>';
+
+      var marker = html.indexOf("HOW TO ADD A POST");
+      var end = marker === -1 ? -1 : html.indexOf("-->", marker);
+      if (end === -1) {
+        var feed = html.indexOf('<div class="feed">');
+        if (feed === -1) throw new Error("Couldn't find the posts list in index.html.");
+        end = feed + '<div class="feed">'.length - 3;
+      }
+      html = html.slice(0, end + 3) + article + html.slice(end + 3);
+
+      // Add the post to Google's structured data
+      var base = siteBase(html);
+      var entry = '\n          { "@type": "BlogPosting", "headline": ' + JSON.stringify(title) + ', "datePublished": "' + date + '", "url": "' + base + '/#' + id + '", "author": { "@id": "' + base + '/#kjayson" } },';
+      html = html.replace(/("blogPost":\s*\[)(\s*)(\S)/, function (m0, open, ws, next) {
+        return open + (next === "]" ? entry.slice(0, -1) : entry) + ws + next;
+      });
+      html = recount(html);
+
+      return putFile("index.html", html, f.sha, "Add post: " + title).then(function () {
+        return getFile("sitemap.xml").then(function (s) {
+          var updated = s.text.replace(/<lastmod>[^<]*<\/lastmod>/, "<lastmod>" + date + "</lastmod>");
+          return updated === s.text ? null : putFile("sitemap.xml", updated, s.sha, "Update sitemap date");
+        }).catch(function () { return null; });
+      }).then(function () { return id; });
+    }).then(function (id) {
+      show("pub-status", "ok", "Published. It will appear on <a href=\"./#" + id + "\">your site</a> in about a minute. Refresh the site if you don't see it yet.");
+      $("title").value = ""; $("text").value = ""; drop("draft_title"); drop("draft_text"); preview();
+      return refreshList();
+    }).catch(function (e) {
+      show("pub-status", "err", explain(e) + " Your text is still here, so nothing is lost.");
+    }).then(function () { btn.disabled = false; btn.textContent = "Publish"; });
+  });
+
+  // ---------- remove ----------
+  function removePost(p, btn) {
+    btn.disabled = true; btn.textContent = "Removing…";
+    getFile("index.html").then(function (f) {
+      var html = f.text;
+      var art = new RegExp('\\n[ \\t]*<article class="post" id="' + p.id.replace(/[-]/g, "\\-") + '"[\\s\\S]*?<\\/article>');
+      html = html.replace(art, "");
+      var ld = new RegExp('\\n[ \\t]*\\{ "@type": "BlogPosting"[^\\n]*?/#' + p.id.replace(/[-]/g, "\\-") + '"[^\\n]*');
+      html = html.replace(ld, "");
+      html = html.replace(/\},(\s*\]\s*\}\s*\]\s*\})/, "}$1"); // no trailing comma before ]
+      html = recount(html);
+      return putFile("index.html", html, f.sha, "Remove post: " + p.title);
+    }).then(function () {
+      show("list-status", "ok", "Removed “" + esc(p.title) + "”. The site updates in about a minute.");
+      return refreshList();
+    }).catch(function (e) {
+      show("list-status", "err", explain(e));
+      btn.disabled = false; btn.textContent = "Yes, remove";
+    });
+  }
+})();
+</script>
 </body>
 </html>
